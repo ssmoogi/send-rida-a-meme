@@ -1,5 +1,6 @@
 from flask import Flask, escape, render_template, request, url_for
 from random import choice
+import config
 
 web_site = Flask(__name__)
 
@@ -17,12 +18,13 @@ def index():
 @web_site.route('/verify/<password>')
 def verify(password):
 	if not password:
-		username = request.args.get('password')
+		password = request.args.get('password')
 
 	if not password:
-		return 'Sorry error something, malformed request.'
+		return 'Wrong password! Please leave.'
 
-	return render_template('personal_user.html', user=username)
+	if password == ENTER_KEY:
+		return render_template('personal_user.html', user=password)
 
 @web_site.route('/page')
 def random_page():

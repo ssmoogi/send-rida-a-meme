@@ -1,21 +1,22 @@
 .main {
-    text-align: center;
+    padding-top: 100px;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .page-title {
     text-align: center;
 }
 
-.form {
+form {
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-.input {
-    font-size: 28px;
-    margin-top: 20px;
+input {
+    font-size: 25px;
+    margin-top: 25px;
 }
