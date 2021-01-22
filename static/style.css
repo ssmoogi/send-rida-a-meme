@@ -7,7 +7,7 @@
     text-align: center;
 }
 
-form {
+.password-form {
     margin: 0 auto;
     max-width: 500px;
     display: flex;
@@ -16,7 +16,28 @@ form {
     align-items: center;
   }
 
+.meme-text-area {
+    width: 50%;
+    margin: auto;
+}
+
+.meme-buttons {
+    margin: auto;
+    text-align: center;
+}
+
 input {
     font-size: 25px;
+    margin-top: 23px;
+}
+
+.meme-image {
+    margin: 30px;
+    max-height: 400px;
+}
+
+.return-button {
+    display: block;
+    margin: 0 auto;
     margin-top: 25px;
 }

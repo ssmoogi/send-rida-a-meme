@@ -1,33 +1,42 @@
 from flask import Flask, escape, render_template, request, url_for
 from random import choice
-import config
+from config import *
+from send_message import *
 
-web_site = Flask(__name__)
+app = Flask(__name__)
 
-number_list = [
-	100, 101, 200, 201, 202, 204, 206, 207, 300, 301, 302, 303, 304, 305, 307, 400, 401, 402, 403, 404, 405, 406, 408, 409, 410, 411, 412, 413, 414, 415,
-	416, 417, 418, 421, 422, 423, 424, 425, 426,
-	429, 431, 444, 450, 451, 500, 502, 503, 504, 506, 507, 508, 509, 510, 511, 599
-]
+meme_list = ["kait-hi.png", "sahana-lol.jpg", "choir.jpg"]
 
-@web_site.route('/')
+@app.route('/')
+@app.route('/home')
 def index():
 	return render_template('index.html')
 
-@web_site.route('/verify/', defaults={'password': None})
-@web_site.route('/verify/<password>')
+@app.route('/verify/', defaults={'password': None})
+@app.route('/verify/<password>')
 def verify(password):
 	if not password:
 		password = request.args.get('password')
 
-	if not password:
-		return 'Wrong password! Please leave.'
+	if not password or password != ENTER_KEY:
+		return render_template('meme.html', entered=password, password=ENTER_KEY)
 
 	if password == ENTER_KEY:
-		return render_template('personal_user.html', user=password)
+		return render_template('meme.html', entered=password, password=ENTER_KEY, image=choice(meme_list))
 
-@web_site.route('/page')
-def random_page():
-  return render_template('page.html', code=choice(number_list))
+@app.route('/send', defaults={'sender': None, 'message': None, 'meme': None})
+@app.route('/send/<sender>/<message>/<meme>')
+def send(sender, message, meme):
+	if not sender:
+		sender = request.args.get('sender')
+	if not message:
+		message = request.args.get('message')
+	if not meme:
+		meme = request.args.get('meme')
+	
+	meme = './static/images/memes/' + meme 
+	
+	send_message(sender, message, meme)
+	return render_template('sent.html')
 
-web_site.run(host='0.0.0.0', port=8080)
+#app.run(host='0.0.0.0', port=8080)

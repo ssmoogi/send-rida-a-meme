@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+  {% if entered == password %}
+    <div class="container main">
+
+        <h1 class="page-title">send this meme to rida?</h1>
+
+        <img class="meme-image rounded mx-auto d-block" src="../static/images/memes/{{image}}">
+
+        <form action="/send">
+          <div class="meme-text-area">
+            <input type="text" class="form-control" placeholder="sender" name="sender"></input>
+            <textarea style="margin-top: 22px;" class="form-control" placeholder="message" name="message" rows="4"></textarea>
+          </div>
+          <div class="meme-buttons">
+            <input type="submit" class="btn btn-dark" value="send meme"></input>
+            <input type="hidden" name="meme" value="{{image}}" />
+            <!--<input type="submit" class="btn btn-dark" value="new meme"></input>-->
+          </div>
+        </form>
+    
+    </div>
+  {% else %}
+    <div class="container main">
+
+      <h2 class="page-title">wrong password. you're not meant to be here.</h2>
+
+    </div>
+  {% endif %}
+{% endblock content %}
