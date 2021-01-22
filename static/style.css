@@ -41,3 +41,9 @@ input {
     margin: 0 auto;
     margin-top: 25px;
 }
+
+.new-button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 15px;
+}

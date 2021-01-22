@@ -3,7 +3,7 @@
   <div class="container main">
 
     <h2 class="page-title">message sent!</h2>
-    <button href='/home' class="return-button btn btn-dark">back to home?</button>
+    <button type="button" class="return-button btn btn-dark" onclick="window.location.href='{{ url_for( 'index' ) }}';">back to home?</button>
 
   </div>
 {% endblock content %}

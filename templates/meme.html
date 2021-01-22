@@ -13,11 +13,12 @@
             <textarea style="margin-top: 22px;" class="form-control" placeholder="message" name="message" rows="4"></textarea>
           </div>
           <div class="meme-buttons">
+            <!--<button type="button" class="btn btn-dark" onclick="window.location.reload(true);">new meme</button>-->
             <input type="submit" class="btn btn-dark" value="send meme"></input>
             <input type="hidden" name="meme" value="{{image}}" />
-            <!--<input type="submit" class="btn btn-dark" value="new meme"></input>-->
           </div>
         </form>
+        <button type="button" class="new-button btn btn-dark" onclick="window.location.reload(true);">new meme</button>
     
     </div>
   {% else %}

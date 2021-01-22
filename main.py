@@ -5,11 +5,15 @@ from send_message import *
 
 app = Flask(__name__)
 
-meme_list = ["kait-hi.png", "sahana-lol.jpg", "choir.jpg"]
+meme_list = ["kait-hi.png", "sahana-lol.jpg", "choir.jpg", "angel-meme.jpg", "kait-also.jpg", "kaitlyn-meme.jpg", "mokshi-cairo.png", "rida-da-meme.jpg", "rida-iconic.jpg"]
 
 @app.route('/')
-@app.route('/home')
+@app.route('/index')
 def index():
+	return render_template('index.html')
+
+@app.route('/home')
+def home():
 	return render_template('index.html')
 
 @app.route('/verify/', defaults={'password': None})
