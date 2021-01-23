@@ -33,7 +33,7 @@ def send(sender, message, meme):
 		message = request.args.get('message')
 	if not meme:
 		meme = request.args.get('meme')
-		meme = 'http://send-rida-a-meme.ssmoogi.repl.co/static/images/memes/' + meme
+		meme = 'https://raw.githubusercontent.com/ssmoogi/send-rida-a-meme/master/static/images/memes/' + meme
 	
 	send_message(sender, message, meme)
 	return render_template('sent.html')
