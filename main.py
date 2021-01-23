@@ -12,10 +12,6 @@ meme_list = ["kait-hi.png", "sahana-lol.jpg", "choir.jpg", "angel-meme.jpg", "ka
 def index():
 	return render_template('index.html')
 
-@app.route('/home')
-def home():
-	return render_template('index.html')
-
 @app.route('/verify/', defaults={'password': None})
 @app.route('/verify/<password>')
 def verify(password):
