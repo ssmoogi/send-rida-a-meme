@@ -5,7 +5,7 @@
 
         <h1 class="page-title">send this meme to rida?</h1>
 
-        <img class="meme-image rounded mx-auto d-block" src="../static/images/memes/{{image}}">
+        <img class="meme-image rounded mx-auto d-block" src="{{ url_for('static', filename='images/memes/' + image)}}">
 
         <form action="/send">
           <div class="meme-text-area">
